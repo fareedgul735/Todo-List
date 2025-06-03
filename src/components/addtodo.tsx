@@ -1,12 +1,11 @@
 import { useState, type FormEvent } from "react"
 import { useTodos } from "../store/todos";
-import "./addtodo.css"
+import "./global.css"
 
 const AddTodo = () => {
     const [todo, setTodo] = useState("");
     const [error, setError] = useState(false);
     const { handleAddTodo } = useTodos()
-    // console.log(todo);
 
     const handlerForm = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

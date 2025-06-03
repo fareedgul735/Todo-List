@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useTodos } from "../store/todos"
-
+import "./global.css"
 const TodoList = () => {
     const { todos, toggleTodoAsCompleted, handleDeleteTodo } = useTodos();
     const [searchParams] = useSearchParams();
@@ -18,7 +18,7 @@ const TodoList = () => {
 
     return (
         <ul>
-            {filterData.length === 0 ? "todos not found" :
+            {filterData.length === 0 ? <p className="empty-todo">Todos Not Found !</p> :
                 filterData.map((list) => {
                     return <li key={list.id}>
                         <input type="checkbox" id={`todo-${list.id}`}
@@ -26,11 +26,19 @@ const TodoList = () => {
                             onChange={() => toggleTodoAsCompleted(list.id)}
                         />
                         <label htmlFor={`todos-${list.id}`}>{list.task}</label>
+
                         {
-                            list.completed && <button onClick={() => handleDeleteTodo(list.id)}>
-                                Delete
+                            !list.completed && <button className="edit-btn" onClick={() => handleEditTodo(list.id)}>
+                                <i className="fa-solid fa-pencil"></i>
                             </button>
                         }
+
+                        {
+                            list.completed && <button className="delete-btn" onClick={() => handleDeleteTodo(list.id)}>
+                                <i className="fa-solid fa-trash"></i>
+                            </button>
+                        }
+
 
                     </li>
 

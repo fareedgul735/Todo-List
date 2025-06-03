@@ -1,12 +1,12 @@
-import { Route, Routes } from "react-router-dom"
 import AddTodo from "./components/addtodo"
+import Header from "./components/header"
 import Navbar from "./components/navbar"
 import TodoList from "./components/todolist"
 
 const App = () => {
   return (
     <main>
-      <h1>Todo React + TypeScript</h1>
+      <Header />
       <Navbar />
       <AddTodo />
       <TodoList />

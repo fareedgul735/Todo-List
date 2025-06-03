@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import "./global.css"
 
 const Navbar = () => {
+    const location = useLocation();
+    const current = location.search;
     return (
-        <nav>
-            <Link to={"/"} className="">All</Link>
-            <br />
-            <Link to={"/?todos=action"} className="">Action</Link>
-            <br />
-            <Link to={"/?todos=completed"} className="">Completed</Link>
-            <br />
+        <nav className="navbar">
+            <Link to={"/"} className={current === "" ? "nav-link active" : "nav-link"}>All</Link>
+            <Link to={"/?todos=action"} className={current === "?todos=action" ? "nav-link active" : "nav-link"}>Action</Link>
+            <Link to={"/?todos=completed"} className={current === "?todos=completed" ? "nav-link active" : "nav-link"}>Completed</Link>
         </nav>
     )
 }
