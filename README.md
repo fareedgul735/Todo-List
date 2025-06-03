@@ -1,54 +1,74 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📝 Todo App with React, TypeScript, and React Router
+This is a simple Todo List application built using React, TypeScript, React Router, and localStorage. It is designed to help beginners understand how to manage state, routing, context, and persistence in a React project.
 
-Currently, two official plugins are available:
+🔧 Technologies & Features Used
+✅ React
+React is used to build the user interface with reusable components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ TypeScript
+TypeScript helps catch errors early with strong type checking and improves code readability and maintainability.
 
-## Expanding the ESLint configuration
+✅ useState & useEffect Hooks
+useState is used to store todos in memory. useEffect (if used) can be used to load/save todos from localStorage when the app starts or updates.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Optional "It's not necessary"
+✅ Context API (createContext and useContext)
+Context API is used to share the todos and actions (like add, delete, toggle) between components without using props.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+✅ React Router (useSearchParams)
+Used to filter todos based on URL query parameters like ?completed, ?active, or ?all.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+✅ LocalStorage
+Todos are saved in localStorage so the data doesn't disappear after refreshing the page.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+✅ Form Validation
+Input validation is done to prevent submitting empty tasks. If the input is empty, a red border and error message is shown.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+💡 Project Features
+Add new todo tasks.
+
+Mark tasks as completed or uncompleted.
+
+Delete completed tasks.
+
+Filter todos by:
+
+All
+
+Active (not completed)
+
+Completed
+
+Persistent todos using localStorage.
+
+URL-based filtering using query parameters (e.g., ?todos=active).
+
+📁 Folder Structure (Example)
+less
+Copy
+Edit
+src/
+│
+├── components/
+│ ├── AddTodo.tsx
+│ └── TodoList.tsx
+│
+├── store/
+│ └── todos.tsx // Context and logic for todos
+│
+├── App.tsx
+└── main.tsx
+📘 How This Helps Beginners
+Understand how to build a real React + TypeScript project.
+
+Learn state management using Context API.
+
+Practice routing with filters using React Router.
+
+Learn how to store data in localStorage.
+
+Improve typing skills in TypeScript.
+
+Write cleaner and more maintainable code.
