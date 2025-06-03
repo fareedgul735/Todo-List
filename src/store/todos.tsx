@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
+import Swal from "sweetalert2";
 
 export type TodosProviderProps = {
     children: ReactNode
@@ -31,7 +32,7 @@ export const TodosProvider = ({ children }: TodosProviderProps) => {
             const newTodos: Todo[] = [
                 {
                     id: Math.random().toString(),
-                    task: task.toUpperCase(),
+                    task: task,
                     completed: false,
                     createdAt: new Date()
                 },
@@ -51,12 +52,26 @@ export const TodosProvider = ({ children }: TodosProviderProps) => {
         })
     }
 
-    const handleDeleteTodo = (id: string) => {
-        setTodos((prev) => {
-            const newTodos = prev.filter((filterList) => filterList.id !== id)
-            localStorage.setItem("todos", JSON.stringify(newTodos))
-            return newTodos
+    const handleDeleteTodo = async (id: string) => {
+        const result = await Swal.fire({
+            title: "Are you sure you want to delete!",
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ok',
+            cancelButtonText: 'Cancel',
         })
+
+        if (result.isConfirmed) {
+            setTodos((prev) => {
+                const newTodos = prev.filter((filterList) => filterList.id !== id)
+                localStorage.setItem("todos", JSON.stringify(newTodos))
+                return newTodos
+            })
+        } else {
+            console.log("UserCancel??")
+        }
+
     }
 
 

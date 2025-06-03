@@ -22,7 +22,7 @@ const AddTodo = () => {
                 setTodo(e.target.value)
                 setError(false)
             }} />
-            {error && <p className="error-para">field is required</p>}
+            {error && <p className="error-para">field is required !!</p>}
             <button>Add</button>
         </form>
     )

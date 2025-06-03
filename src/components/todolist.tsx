@@ -18,14 +18,14 @@ const TodoList = () => {
 
     return (
         <ul>
-            {filterData.length === 0 ? <p className="empty-todo">Todos Not Found !</p> :
+            {filterData?.length === 0 ? <p className="empty-todo">Todos Not Found !</p> :
                 filterData.map((list) => {
                     return <li key={list.id}>
-                        <input type="checkbox" id={`todo-${list.id}`}
+                        <input type="checkbox" key={`todo-${list.id}`}
                             checked={list.completed}
                             onChange={() => toggleTodoAsCompleted(list.id)}
                         />
-                        <label htmlFor={`todos-${list.id}`}>{list.task}</label>
+                        <label className={list.completed ? "list-comp" : "list-unComp"} htmlFor={`todos-${list.id}`}>{list.task}</label>
 
                         {
                             !list.completed && <button className="edit-btn" onClick={() => handleEditTodo(list.id)}>

@@ -211,13 +211,23 @@ li input[type="checkbox"] {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #3b82f6;
+  accent-color: #ff0303;
 }
 
-li label {
+.list-unComp,
+.list-comp {
   flex-grow: 1;
   font-size: 1rem;
   word-break: break-word;
+  text-transform: capitalize;
+  color: #0015ff;
+}
+
+
+
+.list-comp {
+  text-decoration: line-through;
+  color: rgb(255, 0, 0);
 }
 
 .delete-btn {
