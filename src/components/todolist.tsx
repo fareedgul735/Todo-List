@@ -4,6 +4,7 @@ import "./global.css"
 const TodoList = () => {
     const { todos, toggleTodoAsCompleted, handleDeleteTodo } = useTodos();
     const [searchParams] = useSearchParams();
+    const { handleEditTodo } = useTodos()
     const todosData = searchParams.get("todos");
 
     let filterData = todos;

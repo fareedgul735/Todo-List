@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <Link to={"/"} className={current === "" ? "nav-link active" : "nav-link"}>All</Link>
-            <Link to={"/?todos=action"} className={current === "?todos=action" ? "nav-link active" : "nav-link"}>UnComplete</Link>
+            <Link to={"/?todos=action"} className={current === "?todos=action" ? "nav-link active" : "nav-link"}>InComplete</Link>
             <Link to={"/?todos=completed"} className={current === "?todos=completed" ? "nav-link active" : "nav-link"}>Completed</Link>
         </nav>
     )

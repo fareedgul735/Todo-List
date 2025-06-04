@@ -188,6 +188,15 @@ form button:hover {
   font-weight: 800;
 }
 
+.swal-title-small {
+  font-size: 18px !important;
+}
+
+.swal-popup-small {
+  font-size: 14px !important;
+}
+
+
 ul {
   list-style: none;
   max-width: 600px;
